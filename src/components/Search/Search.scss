@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.search-container {
+  padding: 2%;
+  border: 2px solid $border;
+  border-radius: 10px;
+  font-family: $font;
+  .input-block {
+    .input-text {
+      @include input-text;
+      width: 60%;
+      font-size: 1.2em;
+    }
+    .input-empty {
+      @include input-empty;
+      width: 60%;
+      font-size: 1.2em;
+    }
+  }
+  .button-block {
+    margin-top: 2%;
+    .btn {
+      @include btn;
+      @include hover-btn;
+      width: 20%;
+      height: 20%;
+      font-size: 1.2em;
+    }
+    .btn-disabled {
+      @include btn-disabled;
+      width: 20%;
+      height: 20%;
+      font-size: 1.2em;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+//Colors
+$background: #0d0e4e;
+$border: #9d9d9d;
+$background-btn: #720e0e;
+$background-btn-hover: #480608;
+
+//fonts
+$font: "Slabo 27px", serif;
+
+//mixins
+@mixin input-text() {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $border;
+  color: $border;
+  font-family: $font;
+  outline: none;
+}
+
+@mixin input-empty() {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $background-btn;
+  font-family: $font;
+  outline: none;
+}
+
+@mixin btn() {
+  background-color: $background-btn;
+  border: 2px solid $border;
+  border-radius: 10px;
+  color: $border;
+  font-family: $font;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+@mixin btn-disabled() {
+  background-color: $background-btn;
+  border: 2px solid $border;
+  border-radius: 10px;
+  color: $border;
+  font-family: $font;
+  vertical-align: top;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+@mixin hover-btn {
+  &:hover {
+    background-color: $background-btn-hover;
+  }
+}
