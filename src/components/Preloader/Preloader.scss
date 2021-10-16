@@ -1,0 +1,25 @@
+.preloader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  
+  .preloader {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-image: url("../../images/img-preloader.jpg");
+    background-size: auto;
+    background-repeat: round;
+    animation: load-animate 2s linear infinite;
+  }
+}
+
+@keyframes load-animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
