@@ -4,22 +4,24 @@ import "./WordCard.scss";
 
 export const WordCard = () => {
   const state = useSelector((state) => state.data);
-  const handlerAddWord = () => {
-    
-  }
+  const handlerAddWord = () => {};
   const card = state.data.map((i) => {
     return (
       <div key={i} className="word-card">
         <div className="word-card-item">Word: {i.word}</div>
-       {i.phonetic? <div className="word-card-item">Phonetic: {i.phonetic}</div>:<span></span>}
-        {(i.meanings[0].definitions[0].definition !== undefined) ? (
+        {i.phonetic ? (
+          <div className="word-card-item">Phonetic: {i.phonetic}</div>
+        ) : (
+          <span></span>
+        )}
+        {i.meanings[0].definitions[0].definition !== undefined ? (
           <div className="word-card-item">
             Meaning: {i.meanings[0].definitions[0].definition}
           </div>
         ) : (
           <span></span>
         )}
-        {(i.phonetics.length ) ? (
+        {i.phonetics.length ? (
           <div className="word-card-item">
             <audio src={i.phonetics[0].audio} controls />
           </div>
