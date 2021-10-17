@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+.word-card-container {
+  border: 2px solid $border;
+  border-radius: 10px;
+  margin-top: 1%;
+  .word-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    min-height: 70vh;
+    font-family: $font;
+    color: $border;
+    font-size: 1.2em;
+  }
+  .word-card-item {
+    margin: 2%;
+    text-align: justify;
+
+    button {
+      @include btn;
+      @include hover-btn;
+      font-size: 1.2em;
+      width: 150%;
+    }
+  }
+}

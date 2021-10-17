@@ -3,7 +3,6 @@ export const SET_DATA = "SET_DATA";
 export const ERR_DATA = "ERR_DATA";
 
 export const loadData = (value) => {
-  console.log(value)
   return {
     type: LOAD_DATA,
     payload: value

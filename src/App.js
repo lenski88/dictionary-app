@@ -1,17 +1,18 @@
-import React from 'react';
-import { Search } from './components/Search/Search';
-import { Preloader } from './components/Preloader/Preloader';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Search } from "./components/Search/Search";
+import { Preloader } from "./components/Preloader/Preloader";
+import { WordCard } from "./components/WordCard/WordCard";
 
-import './App.css';
-
+import "./App.css";
 
 function App() {
-  const state = useSelector(state => state.data)
+  const state = useSelector((state) => state.data);
   return (
     <div className="App">
-      <Search/>
-     {state.status === 1 && <Preloader/>}
+      <Search />
+      {state.status === 1 && <Preloader />}
+      {state.status === 2 && <WordCard />}
     </div>
   );
 }
