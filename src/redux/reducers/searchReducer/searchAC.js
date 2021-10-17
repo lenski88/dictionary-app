@@ -1,6 +1,8 @@
 export const LOAD_DATA = "LOAD_DATA";
 export const SET_DATA = "SET_DATA";
 export const ERR_DATA = "ERR_DATA";
+export const RESET_STATUS = "RESET_STATUS";
+
 
 export const loadData = (value) => {
   return {
@@ -19,5 +21,11 @@ export const setData = (data) => {
 export const errData = () => {
   return {
     type: ERR_DATA,
+  };
+};
+
+export const resetStatus = () => {
+  return {
+    type: RESET_STATUS,
   };
 };

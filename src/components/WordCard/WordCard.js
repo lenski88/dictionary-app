@@ -4,9 +4,10 @@ import "./WordCard.scss";
 
 export const WordCard = () => {
   const state = useSelector((state) => state.data);
-  console.log(state.data);
+  const handlerAddWord = () => {
+    
+  }
   const card = state.data.map((i) => {
-     console.log(state.data[0].phonetics)
     return (
       <div key={i} className="word-card">
         <div className="word-card-item">Word: {i.word}</div>
@@ -26,7 +27,7 @@ export const WordCard = () => {
           <span></span>
         )}
         <div className="word-card-item">
-          <button>Add</button>
+          <button onClick={handlerAddWord}>Add</button>
         </div>
       </div>
     );

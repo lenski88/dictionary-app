@@ -1,7 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchThunkAC } from "../../redux/reducers/searchReducer/thunk";
+import { closeDictionary } from "../../redux/reducers/workModeReducer/workModeAC";
 import "./Search.scss";
 
 export const Search = () => {
@@ -18,13 +19,18 @@ export const Search = () => {
     if (!word) {
       setBottom("input-empty");
       setTimeout(() => setBottom("input-text"), 400);
-    } else if (state.status === 3) {
-      setValue("NOT FOUND");
-      setTimeout(() => setValue(""), 1000);
     } else {
-      dispatch(searchThunkAC(dispatch, word));
+      dispatch(closeDictionary())
+      dispatch(searchThunkAC(dispatch, word)); 
     }
   };
+  useEffect(()=> {
+    if (state.status === 3) {
+      setValue("NOT FOUND");
+      setTimeout(() => setValue(""), 1000);
+    }
+  }, [state.status])
+
   return (
     <div className="search-container">
       <div className="input-block">

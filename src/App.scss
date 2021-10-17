@@ -1,0 +1,19 @@
+@import './styles/variables.scss';
+
+.App {
+  text-align: center;
+  margin:1%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2%;
+  border: 2px solid $border;
+  border-radius: 10px;
+  font-family: $font;
+}
+
+

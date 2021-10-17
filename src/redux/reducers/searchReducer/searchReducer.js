@@ -1,4 +1,4 @@
-import { LOAD_DATA, SET_DATA, ERR_DATA } from "./searchAC";
+import { LOAD_DATA, SET_DATA, ERR_DATA, RESET_STATUS } from "./searchAC";
 
 const initialState = {
   data: null,
@@ -26,6 +26,13 @@ export const searchReducer = (state = initialState, action) => {
       let newState = {
         data: null,
         status: 3,
+      };
+      return newState;
+    }
+    case RESET_STATUS: {
+      let newState = {
+        data: null,
+        status: 0,
       };
       return newState;
     }
