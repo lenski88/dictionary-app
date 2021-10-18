@@ -58,5 +58,6 @@ export const WordCard = () => {
       </div>
     );
   });
+  console.log(card)
   return <div className="word-card-container">{card}</div>;
 };

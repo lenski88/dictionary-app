@@ -1,15 +1,30 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .my-dictionary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: justify;
+  font-family: $font;
+  color: $border;
+  font-size: 1.2em;
+  margin-top:2%;
+  min-height: 70vh;
+  .my-dictionary-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    font-family: $font;
-    color: $border;
-    font-size: 1.2em;
-    min-height: 70vh;
-    .my-dictionary-block {
-        
+    align-items: flex-start;
+    .my-dictionary-word {
+      margin: 1%;
+      button {
+        @include btn;
+        @include hover-btn;
+        font-size: 0.7em;
+        width: 25px;
+        border-radius: 20%;
+      }
     }
+  }
 }
