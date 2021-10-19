@@ -1,17 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./WordCard.scss";
+import { useState, useEffect} from "react";
 
 export const WordCard = () => {
   const state = useSelector((state) => state.data);
+  const [addWord, setAddWord] = useState(0);
+  useEffect(()=>{
+    if(addWord) {
+      setTimeout(()=>setAddWord(0),500);
+    }
+  })
   const handlerAddWord = () => {
     let dictionary = JSON.parse(localStorage.dictionary);
     let isWord = dictionary.some((i) => {
       return i.word === state.data[0].word;
     });
     if (isWord) {
+      
       return;
     } else {
+      setAddWord(1);
       let lastId;
       if (!dictionary.length) {
         lastId = 0;
@@ -20,7 +29,7 @@ export const WordCard = () => {
       }
       let newWord = {
         id: lastId,
-        word: state.data[0].word,
+        word: state.data[0].word.toLowerCase(),
         meanings: state.data[0].meanings[0].definitions[0].definition,
       };
       let finalDictionary = [...dictionary];
@@ -31,7 +40,7 @@ export const WordCard = () => {
   };
   const card = state.data.map((i) => {
     return (
-      <div key={i} className="word-card">
+      <div key={Math.random()} className="word-card">
         <div className="word-card-item">Word: {i.word}</div>
         {i.phonetic ? (
           <div className="word-card-item">Phonetic: {i.phonetic}</div>
@@ -53,11 +62,10 @@ export const WordCard = () => {
           <span></span>
         )}
         <div className="word-card-item">
-          <button onClick={handlerAddWord}>Add</button>
+        {addWord? `+${state.data[0].word}`:<button onClick={handlerAddWord}>Add</button>}
         </div>
       </div>
     );
   });
-  console.log(card)
   return <div className="word-card-container">{card}</div>;
 };

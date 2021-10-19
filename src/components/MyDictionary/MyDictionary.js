@@ -5,19 +5,26 @@ import "./MyDictionary.scss";
 
 export const MyDictionary = (props) => {
   const [state, setState] = useState(props);
+  const sort = state.dictionary.sort((a,b)=>{
+    if (a.word<b.word) return -1
+    if(a.word>b.word) return 1
+    return 0
+  })
+  
   const dictionaryList = state.dictionary.map((i) => {
     return (
       <div key={i.id} className="my-dictionary-word">
         <button>X</button>
-        {`  ${i.word} - ${i.meanings}`} 
+        {`  ${i.word} - ${i.meanings}`}
+        <hr/>
       </div>
     );
   });
-  console.log(dictionaryList);
+  
   return (
     <div className="my-dictionary-container">
       <div className="my-dictionary-block">
-        {!state.dictionary.length ? "Dictionary is empty" : dictionaryList}
+        {!state.dictionary.length? 'Your dictionary is empty!' : dictionaryList}
       </div>
     </div>
   );
